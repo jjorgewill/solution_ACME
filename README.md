@@ -28,12 +28,14 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 ## How run test
+Execute the next command:
 ```
 python -m unittest tests/tests_cases.py 
 ```
 ## How can you run the program?
+Execute the next command:
 ```
-run the program with python main.py
+python main.py
 ```
 
 
