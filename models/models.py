@@ -41,9 +41,6 @@ class CalculateStrategy(ABC):
     def calculate_values_hour(self, range_hours, current_range, start, end):
         pass
 
-    def get_hour_operator(self):
-        return self.hour_operator
-
 
 class RangeInside(CalculateStrategy):
     def __init__(self):
