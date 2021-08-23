@@ -150,7 +150,7 @@ class RangeInsideTest(unittest.TestCase):
 
 class RangeContinuousTest(unittest.TestCase):
 
-    def test_should_calculate_values_hour_when_range_is_inside(self):
+    def test_should_calculate_values_hour_when_range_is_continuos(self):
         range_continuous = RangeContinuous()
         first_range_hour = RangeHour('00:01', '09:00', 30)
         second_range_hour = RangeHour('09:01', '18:00', 20)
@@ -166,7 +166,7 @@ class RangeContinuousTest(unittest.TestCase):
 
 class RangeMoreOneRangeTest(unittest.TestCase):
 
-    def test_should_calculate_values_hour_when_range_is_inside(self):
+    def test_should_calculate_values_hour_when_range_is_more_than_one(self):
         range_more_one = RangeMoreOneRange()
         first_range_hour = RangeHour('00:01', '09:00', 30)
         second_range_hour = RangeHour('09:01', '18:00', 20)
