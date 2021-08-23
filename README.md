@@ -20,7 +20,7 @@ sudo -H pip3 install virtualenv
 - Create you virtualenv inside the project with name venv and active
 ```
 cd solution_ACME
-create virtualenv 
+create virtualenv -p /usr/bin/python3.7 venv
 source venv/bin/activate 
 ```
 - Install library for run test
