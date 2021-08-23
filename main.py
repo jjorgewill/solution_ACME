@@ -42,11 +42,11 @@ def extract_to_data():
 def main():
     data = extract_to_data()
     company = create_company()
-    pay_calculator = PayCalculator(company)
+    payment_calculator = PayCalculator(company)
     for row in data:
         try:
-            pays_for_employee = pay_calculator.calculate_payments(row)
-            print(f'The amount to pay {pays_for_employee["employee"]} is: {pays_for_employee["pay_total"]} USD')
+            payments_for_employee = payment_calculator.calculate_payments(row)
+            print(f'The amount to pay {payments_for_employee["employee"]} is: {payments_for_employee["pay_total"]} USD')
         except Exception as e:
             print(f'ERROR read data from row {row}')
 

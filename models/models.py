@@ -189,14 +189,14 @@ class PayCalculator:
 
     def calculate_payments(self, data):
         employ, days = self.parse_data.parse(data)
-        pays_for_employee = {'employee': employ, "pay_total": 0}
+        payments_for_employee = {'employee': employ, "pay_total": 0}
         for row in days:
             day_find = row[:2]
             hours = row[2:].split("-")
             day_range = self.company.get_day_range(day_find)
             value_to_pay = day_range.get_sum_value_range_hours(hours[0], hours[1])
-            pays_for_employee["pay_total"] += value_to_pay
-        return pays_for_employee
+            payments_for_employee["pay_total"] += value_to_pay
+        return payments_for_employee
 
 
 class ReadFile:
