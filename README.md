@@ -11,7 +11,7 @@ or
 git clone https://github.com/jjorgewill/solution_ACME.git
 ```
 ## Requeriments
-For this solutions you need install python3.7+ and virtualenv 
+For this solutions you need to install python3.7+ and virtualenv 
 - Install virtualenv in linux: 
 ```
 sudo -H pip3 install --upgrade pip
