@@ -1,14 +1,14 @@
-#Solution to Payments for company ACME
+# Solution to Payments for company ACME
 he company ACME offers their employees the flexibility to work the hours they want. They will pay for the hours worked based on the day of the week and time of day. The goal of this exercise is to calculate the total that the company has to pay an employee, based on the hours they worked and the times during which they worked\
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-##Starting
+## Starting
 This instructions allow you can download and run the code in your computer\
 ```
 git clone
 ```
-##Requeriments
+## Requeriments
 For this solutions you need install python3.7+ and virtualenv\
 - Install virtualenv in linux:\
 ```
@@ -25,7 +25,7 @@ source venv/bin/activate
 ```
 pip install -r requirements.txt
 ```
-##How run test
+## How run test
 ```
 python -m unittest tests/tests_cases.py 
 ```
