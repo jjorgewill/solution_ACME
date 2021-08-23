@@ -124,7 +124,6 @@ class RangeDay:
         current_range = self.get_current_range(start)
         last_range = self.get_current_range(end)
         calculate = FactoryCalculateMethod()
-        a = last_range - current_range
         calculate_sum = calculate.get_calculate_method(last_range - current_range)
         sum_value_pay_per_hours = calculate_sum.calculate_values_hour(self.range_hours, current_range, start, end)
         return sum_value_pay_per_hours
