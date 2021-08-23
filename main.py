@@ -33,12 +33,16 @@ def create_company():
     return company
 
 
-def main():
+def extract_to_data():
     file = ReadFile()
     data = file.read('data.txt')
+    return data
+
+
+def main():
+    data = extract_to_data()
     company = create_company()
     pay_calculator = PayCalculator(company)
-
     for row in data:
         try:
             pays_for_employee = pay_calculator.calculate_payments(row)
