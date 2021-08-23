@@ -6,7 +6,9 @@ The company ACME offers their employees the flexibility to work the hours they w
 ## Starting
 This instructions allow you can download and run the code in your computer\
 ```
-git clone
+git clone git@github.com:jjorgewill/solution_ACME.git 
+or
+git clone https://github.com/jjorgewill/solution_ACME.git
 ```
 ## Requeriments
 For this solutions you need install python3.7+ and virtualenv\
@@ -17,7 +19,7 @@ sudo -H pip3 install virtualenv
 ```
 - Create you virtualenv inside the project with name venv and active
 ```
-cd name
+cd solution_ACME
 create virtualenv 
 source venv/bin/activate 
 ```
