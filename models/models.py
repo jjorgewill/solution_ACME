@@ -150,8 +150,8 @@ class ParseData:
 
     @staticmethod
     def get_employee(data):
-        employ = data.split("=")
-        return employ[0], employ[1]
+        employee = data.split("=")
+        return employee[0], employee[1]
 
 
 class Company:

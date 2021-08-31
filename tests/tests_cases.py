@@ -11,10 +11,19 @@ class HourOperatorTest(unittest.TestCase):
         hours = hour_operator.convert_range_in_hour_zero("10:01")
         self.assertEqual(hours, "10:00")
 
-    def test_should_restart_hour_when_receive_hour_start_and_hour_end(self):
+    def test_should_subtract_hour_when_receive_hour_start_and_hour_end(self):
         hour_operator = HourOperator()
         hours = hour_operator.restart_hour('10:00', "20:00")
         self.assertEqual(hours, 10)
+
+    def test_should_subtract_even_on_different_days(self):
+        hour_operator = HourOperator()
+        hours = hour_operator.restart_hour('17:00', "03:00")
+        self.assertEqual(hours, 10)
+
+    def test_raise_an_exception_when_the_format_is_wrong(self):
+        hour_operator = HourOperator()
+        self.assertRaises(ValueError, hour_operator.restart_hour, 'a', "03:00")
 
 
 class RangeHourTest(unittest.TestCase):
