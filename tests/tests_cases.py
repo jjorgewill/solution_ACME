@@ -46,6 +46,13 @@ class ParseDataTest(unittest.TestCase):
         self.assertEqual(employee, "IVAR")
         self.assertEqual(days, ["MO01:00-00:00", "TH02:00-14:00", "SU20:00-21:00"])
 
+    def test_should_get_employee_and_days_when_receive_data(self):
+        data = "IVAR=MO01:00-00:00,TH02:00-14:00,SU20:00-21:00"
+        parse = ParseData()
+        employee, days = parse.get_employee_and_days(data)
+        self.assertEqual(employee, "IVAR")
+        self.assertEqual(days, "MO01:00-00:00,TH02:00-14:00,SU20:00-21:00")
+
 
 class RangeDayTest(unittest.TestCase):
 

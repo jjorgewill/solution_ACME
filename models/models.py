@@ -145,11 +145,11 @@ class RangeDay:
 class ParseData:
 
     def parse(self, data):
-        employee, days = self.get_employee(data)
+        employee, days = self.get_employee_and_days(data)
         return employee, days.split(",")
 
     @staticmethod
-    def get_employee(data):
+    def get_employee_and_days(data):
         employee = data.split("=")
         return employee[0], employee[1]
 
