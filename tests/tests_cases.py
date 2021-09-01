@@ -1,7 +1,7 @@
 import unittest
 
 from models.models import CreateDaysRanges, HourOperator, RangeHour, ParseData, RangeDay, Company, RangeInside, \
-    RangeContinuous, RangeMoreOneRange
+    RangeContinuous, RangeMoreOneRange, PayCalculator
 
 
 class HourOperatorTest(unittest.TestCase):
@@ -197,6 +197,36 @@ class RangeMoreOneRangeTest(unittest.TestCase):
         current_range = 0
         sum_value_hour = range_more_one.calculate_values_hour(range_hour, current_range, "08:00", "21:00")
         self.assertEqual(sum_value_hour, 285)
+
+
+class PayCalculatorTest(unittest.TestCase):
+
+    def test_calculate_payments_when_receive_data(self):
+        data = "RAGNAR=MO01:00-00:00,TH02:00-14:00,SU20:00-21:00"
+        create_days_range = CreateDaysRanges()
+        first_range = create_days_range.validate_range('Monday', 'Friday')
+        second_range = create_days_range.validate_range('Saturday', 'Sunday')
+
+        first_day_one_hour_interval = RangeHour('00:01', '09:00', 25)
+        first_day_second_hour_interval = RangeHour('09:01', '18:00', 15)
+        first_day_third_hour_interval = RangeHour('18:01', '00:00', 20)
+        second_day_one_hour_interval = RangeHour('00:01', '09:00', 30)
+        second_day_second_hour_interval = RangeHour('09:01', '18:00', 20)
+        second_day_third_hour_interval = RangeHour('18:01', '00:00', 25)
+
+        first_day_range = RangeDay(first_range)
+        first_day_range.add_hour(first_day_one_hour_interval)
+        first_day_range.add_hour(first_day_second_hour_interval)
+        first_day_range.add_hour(first_day_third_hour_interval)
+
+        second_day_range = RangeDay(second_range)
+        second_day_range.add_hour(second_day_one_hour_interval)
+        second_day_range.add_hour(second_day_second_hour_interval)
+        second_day_range.add_hour(second_day_third_hour_interval)
+
+        company = Company('ACME', [first_day_range, second_day_range])
+        pay_calculator = PayCalculator(company)
+        self.assertEqual(pay_calculator.calculate_payments(data), {'employee': "RAGNAR", "pay_total": 730})
 
 
 class CompanyTest(unittest.TestCase):
