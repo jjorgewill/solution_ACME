@@ -144,6 +144,12 @@ class CreateDaysRangesTest(unittest.TestCase):
         days_range = create_day_range.validate_range('Monday', 'Friday')
         self.assertEqual(days_range, ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"])
 
+    def test_should_validate_range_no_duplicate_range_when_repeat_same_range(self):
+        create_day_range = CreateDaysRanges()
+        create_day_range.validate_range('Monday', 'Friday')
+        repeat_range = create_day_range.validate_range('Monday', 'Friday')
+        self.assertIsNone(repeat_range)
+
 
 class RangeInsideTest(unittest.TestCase):
 
